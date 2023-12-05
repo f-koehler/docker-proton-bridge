@@ -1,0 +1,12 @@
+#!/usr/bin/expect -f
+spawn /usr/bin/protonmail-bridge --cli --no-window
+expect ">>>" {
+    send "login\r"
+}
+expect "Username:" {
+    send "$env(PROTONMAIL_USERNAME)\r"
+}
+expect "Password:" {
+    send "$env(PROTONMAIL_PASSWORD)\r"
+}
+expect ">>>"
